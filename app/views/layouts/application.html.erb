@@ -20,8 +20,13 @@
             <span class="icon-bar"></span>
           </button>
         <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
+        <%if logged_in?%>
+          <a class="navbar-brand" href="<%= user_path(current_user) %>"/>Hi, <%= current_user.name%></a>
+          <%= link_to "Log Out", signout_path, method: :post, class: "navbar-brand"%>
+        <% else %>
         <a class="navbar-brand" href="<%= new_user_path %>"/>Sign Up</a>
         <a class="navbar-brand" href="<%= signin_path %>"/>Sign In</a>
+          <%end%>
         </div>
         <% if flash[:notice] %>
            <div class="notice"><%= flash[:notice] %></div>
