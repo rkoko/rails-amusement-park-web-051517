@@ -1,9 +1,21 @@
-Name: <%= @attraction.name %>
-Ticket Cost: <%= @attraction.tickets %>
-Nausea inducing score: <%= @attraction.nausea_rating %>
-Happiness inducing score: <%= @attraction.happiness_rating %>
-Height requirement (inches): <%= @attraction.min_height %>
-<%= link_to "Delete", @attraction, method: :delete %>
+<h2><%= @attraction.name %></h2>
+<ul>
+  <li>
+    Ticket Cost: <%= @attraction.tickets %>
+  </li>
+<li>
+  Nausea inducing score: <%= @attraction.nausea_rating %>
+</li>
+<li>
+  Happiness inducing score: <%= @attraction.happiness_rating %>
+</li>
+<li>
+  Height requirement (inches): <%= @attraction.min_height %>
+</li>
+
+</ul>
+
+
 <%= link_to "All attractions", attractions_path %>
 
 
@@ -11,6 +23,9 @@ Height requirement (inches): <%= @attraction.min_height %>
 <% if current_user.admin? %>
   <p>
     <%= link_to "Edit Attraction", edit_attraction_path %>
+  </p>
+  <p>
+    <%= link_to "Delete", @attraction, method: :delete %>
   </p>
 <% else %>
   <%= form_tag "/rides" do %>

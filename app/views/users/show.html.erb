@@ -1,12 +1,24 @@
+<h1><%= @user.name %> <% if @user.admin == true%> (ADMIN)<%end%></h1>
+<ul>
+  <li>
+    Tickets: <%= @user.tickets %>
+  </li>
+  <li>
+    Mood: <%= @user.mood %>
+  </li>
+  <li>
+    Height: <%= @user.height %>
+  </li>
+</ul>
 
+<p>
+  <%= link_to "See attractions", attractions_path %>
+</p>
 
-<% if @user.admin == true%>
-  <p>ADMIN</p>
-  <%end%>
-Name: <%= @user.name %>
-Tickets: <%= @user.tickets %>
-Mood: <%= @user.mood %>
-Height: <%= @user.height %>
-<%= link_to "Edit", edit_user_path %>
-<%= link_to "See attractions", attractions_path %>
-<%= link_to "Log Out", signout_path, method: :post %>
+<p>
+  <%= link_to "Edit User", edit_user_path %>
+</p>
+
+<p>
+  <%= link_to "Log Out", signout_path, method: :post %>
+</p>

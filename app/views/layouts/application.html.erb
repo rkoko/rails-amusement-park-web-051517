@@ -28,9 +28,9 @@
         <a class="navbar-brand" href="<%= signin_path %>"/>Sign In</a>
           <%end%>
         </div>
-        <% if flash[:notice] %>
-           <div class="notice"><%= flash[:notice] %></div>
-         <% end %>
+
+
+
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
            <!--  nav here -->
@@ -41,6 +41,9 @@
 
     <!-- content -->
     <div class="container"  role="main">
+      <% if flash[:notice] %>
+         <div class="notice alert alert-info" ><%= flash[:notice] %></div>
+       <% end %>
       <%= yield %>
     </div>
 

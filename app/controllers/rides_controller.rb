@@ -13,14 +13,6 @@ class RidesController < ApplicationController
     else
       redirect_to user_path(@ride.user_id)
     end
-
-
   end
-
-
-
-
-
-
 
 end
