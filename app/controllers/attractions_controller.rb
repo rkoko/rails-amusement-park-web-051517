@@ -1,5 +1,6 @@
 class AttractionsController < ApplicationController
   before_action :authenticated
+  before_action :admin?, only: [:new, :create, :edit, :update]
 
   def index
     @attractions = Attraction.all
@@ -42,6 +43,7 @@ class AttractionsController < ApplicationController
     @attraction.destroy
     redirect_to attractions_path
   end
+
 
   private
 
