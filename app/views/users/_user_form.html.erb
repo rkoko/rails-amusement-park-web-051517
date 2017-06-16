@@ -1,19 +1,35 @@
-<%=form_for(@user) do |f| %>
+<%=form_for @user, :html => {:class => "form-horizontal"} do |f|%>
+<div class = "form-group">
   <%= f.label :name%> <br>
   <%= f.text_field(:name, placeholder: "Name")%> <br>
+</div>
+<div class = "form-group">
   <%= f.label :password%> <br>
   <%= f.password_field(:password, placeholder: "Password")%><br>
+</div>
+<div class = "form-group">
   <%= f.label :height%> <br>
   <%= f.number_field(:height, placeholder: "Height(inches)")%><br>
+</div>
+<div class = "form-group">
   <%= f.label :happiness%> <br>
   <%= f.number_field(:happiness, placeholder: "Happiness(1-5 scale)")%><br>
+</div>
+<div class = "form-group">
   <%= f.label :nausea%> <br>
   <%= f.number_field(:nausea, placeholder: "Nausea(1-5 scale)")%><br>
+</div>
+<div class = "form-group">
   <%= f.label :tickets%> <br>
   <%= f.number_field(:tickets, placeholder: "# of tickets")%><br>
+</div>
+
   <% #if logged_in? && current_user.admin? %>
+  <div class = "form-group">
     <%= f.label "ADMIN" %>
     <%= f.check_box :admin %><br>
+    </div>
   <% #end %>
+
   <%= f.submit %>
 <%end%>
