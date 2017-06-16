@@ -22,6 +22,11 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    if @user == current_user || current_user.admin?
+    else
+      redirect_to user_path(@user)
+      flash[:notice] = "You do not have access to edit #{@user.name}"
+    end
   end
 
   def update

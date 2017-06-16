@@ -28,7 +28,7 @@ class Ride < ActiveRecord::Base
         self.user.happiness += self.attraction.happiness_rating
       end
       self.user.save
-      "Thanks for riding #{self.attraction.name}"
+      "Thanks for riding the #{self.attraction.name}!"
 
 
     elsif self.user.tickets <= self.attraction.tickets && self.user.height <= self.attraction.min_height

@@ -1,0 +1,13 @@
+<%= form_for(@attraction) do |f|%>
+  <%= f.label :name%><br>
+  <%= f.text_field(:name, placeholder: "Name of attraction:") %><br>
+  <%= f.label :tickets%><br>
+  <%= f.number_field(:tickets, placeholder: "Ticket Cost") %><br>
+  <%= f.label :nausea_rating%><br>
+  <%= f.number_field(:nausea_rating, placeholder: "How nausea inducing is it? (1-5)") %><br>
+  <%= f.label :happiness_rating%><br>
+  <%= f.number_field(:happiness_rating, placeholder: "How fun is it? (1-5)") %><br>
+  <%= f.label :min_height%><br>
+  <%= f.number_field(:min_height, placeholder: "Height requirement (inches)") %><br>
+  <%= f.submit %>
+<% end %>
