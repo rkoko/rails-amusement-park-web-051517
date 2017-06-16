@@ -11,9 +11,9 @@
   <%= f.number_field(:nausea, placeholder: "Nausea(1-5 scale)")%><br>
   <%= f.label :tickets%> <br>
   <%= f.number_field(:tickets, placeholder: "# of tickets")%><br>
-
-  <%= f.label "ADMIN" %>
-  <%= f.check_box :admin %><br>
-
+  <% #if logged_in? && current_user.admin? %>
+    <%= f.label "ADMIN" %>
+    <%= f.check_box :admin %><br>
+  <% #end %>
   <%= f.submit %>
 <%end%>
