@@ -1,6 +1,6 @@
 class AttractionsController < ApplicationController
   before_action :authenticated
-  before_action :admin?, only: [:new, :create, :edit, :update]
+  before_action :admin?, except: [:index, :show]
 
   def index
     @attractions = Attraction.all
@@ -27,12 +27,17 @@ class AttractionsController < ApplicationController
 
   def edit
     @attraction = Attraction.find(params[:id])
+    if !current_user.admin?
+      redirect_to attraction_path(@attraction)
+      flash[:notice] = "You do not have access to edit #{@attraction.name}"
+    end
   end
 
   def update
     @attraction = Attraction.find(params[:id])
     if @attraction.update(attraction_params)
       redirect_to attraction_path(@attraction)
+      flash[:notice] = "Success, #{@attraction.name} has been updated!"
     else
       render :edit
     end
